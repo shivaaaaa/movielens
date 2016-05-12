@@ -15,11 +15,11 @@ class MyamazonSpider(scrapy.Spider):
 
     def parse(self, response):
         hxs     = HtmlXPathSelector(response)
-        urls = hxs.select('//a[contains(@class, "s-access-detail-page")]')
+        urls = hxs.select('//a[contains(@class, "s-access-detail-page")]/@href')
 
 
        # titles  = hxs.select('//h1[@id="aiv-content-title"]/text()').extract()[0]
 
 
-        print("urls=", urls)
+      
         yield urls
